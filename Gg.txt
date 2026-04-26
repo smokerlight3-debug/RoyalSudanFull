@@ -1,0 +1,220 @@
+============================================================
+1. ملف الهيكل: index.html
+============================================================
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم رويال | الفخامة السودانية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="gold-nav">
+        <div class="nav-container">
+            <div class="logo">رويال</div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">نبذة عنا</a></li>
+                <li><a href="#menu">المنيو</a></li>
+                <li><a href="#cart-section">السلة (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-overlay">
+            <h1>مطعم رويال</h1>
+            <p>أرقى المأكولات في الحاج يوسف</p>
+        </div>
+    </header>
+
+    <section id="about" class="about-section">
+        <div class="about-card">
+            <h2>نبذة عنا</h2>
+            <p><b>العنوان:</b> الحاج يوسف - تقاطع الردمية</p>
+            <p><b>مواعيد العمل:</b> من 10:00 صباحاً حتى 12:00 مساءً</p>
+            <p>نحن فخورون بتقديم أشهى الوجبات السودانية والعالمية بأعلى معايير الجودة.</p>
+        </div>
+    </section>
+
+    <section id="menu" class="section">
+        <h2 class="section-title">قائمة الطعام</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500" alt="ستيك">
+                <div class="card-info">
+                    <h3>ستيك مشوي فاخر</h3>
+                    <span class="price">15,000 SDG</span>
+                    <div class="btns-group">
+                        <button class="btn-buy" onclick="quickBuy('ستيك مشوي', 15000)">شراء الآن</button>
+                        <button class="btn-cart" onclick="addToCart('ستيك مشوي', 15000)">إضافة للسلة</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="بيتزا">
+                <div class="card-info">
+                    <h3>بيتزا رويال</h3>
+                    <span class="price">12,500 SDG</span>
+                    <div class="btns-group">
+                        <button class="btn-buy" onclick="quickBuy('بيتزا رويال', 12500)">شراء الآن</button>
+                        <button class="btn-cart" onclick="addToCart('بيتزا رويال', 12500)">إضافة للسلة</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500" alt="قهوة">
+                <div class="card-info">
+                    <h3>قهوة جبنة</h3>
+                    <span class="price">2,000 SDG</span>
+                    <div class="btns-group">
+                        <button class="btn-buy" onclick="quickBuy('قهوة جبنة', 2000)">شراء الآن</button>
+                        <button class="btn-cart" onclick="addToCart('قهوة جبنة', 2000)">إضافة للسلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cart-section" class="section cart-area">
+        <div class="form-container">
+            <h2>سلة المشتريات والبيانات</h2>
+            <div id="cart-display" class="cart-list">
+                <p style="text-align:center; color:#888;">السلة فارغة حالياً</p>
+            </div>
+            <div class="total-box">الإجمالي الكلي: <span id="total-price">0</span> SDG</div>
+            
+            <form id="finalOrderForm">
+                <input type="text" id="custName" placeholder="الاسم الكامل" required>
+                <input type="tel" id="custPhone" placeholder="رقم الهاتف" required>
+                <input type="text" id="custAddress" placeholder="العنوان بالتفصيل" required>
+                <button type="submit" class="submit-order">تأكيد طلب المشتريات</button>
+            </form>
+            <div id="statusMessage"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 مطعم رويال - الحاج يوسف تقاطع الردمية</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+============================================================
+2. ملف التصميم: style.css
+============================================================
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+body { background-color: #f9f9f9; scroll-behavior: smooth; }
+
+/* الشريط الذهبي */
+.gold-nav { background-color: #b89116; color: white; padding: 15px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 2rem; font-weight: bold; }
+.nav-links { list-style: none; display: flex; }
+.nav-links li { margin-right: 25px; }
+.nav-links a { color: white; text-decoration: none; font-weight: bold; }
+
+.hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1200'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white; margin-top: 60px; }
+
+.about-section { padding: 40px 10%; text-align: center; }
+.about-card { background: white; padding: 30px; border-radius: 10px; border-top: 5px solid #b89116; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+.section { padding: 60px 10%; }
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; }
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.price { display: block; color: #b89116; font-weight: bold; font-size: 1.3rem; margin: 15px 0; }
+
+/* أزرار الشراء والإضافة */
+.btns-group { display: flex; flex-direction: column; padding: 10px 20px; gap: 10px; }
+.btn-buy, .btn-cart { padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; color: white; }
+.btn-buy { background-color: #333; } /* لون شراء الآن */
+.btn-cart { background-color: #b89116; } /* لون ذهبي للإضافة */
+
+.cart-area { background-color: #eee; }
+.form-container { max-width: 600px; margin: auto; background: white; padding: 40px; border-radius: 15px; }
+.cart-list { margin-bottom: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+.cart-item { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 8px 0; }
+.btn-del { color: red; cursor: pointer; border: none; background: none; font-weight: bold; }
+.total-box { font-size: 1.4rem; font-weight: bold; margin-bottom: 20px; color: #b89116; text-align: center; }
+
+input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
+.submit-order { width: 100%; background: #b89116; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.2rem; cursor: pointer; font-weight: bold; }
+
+============================================================
+3. ملف التفاعل: script.js
+============================================================
+let cart = [];
+let total = 0;
+
+// إضافة للسلة فقط
+function addToCart(name, price) {
+    cart.push({ id: Date.now(), name: name, price: price });
+    total += price;
+    updateUI();
+    alert("تمت إضافة " + name + " للسلة بنجاح!");
+}
+
+// شراء الآن (يضيف ثم ينزل للبيانات مباشرة)
+function quickBuy(name, price) {
+    addToCart(name, price);
+    document.getElementById('cart-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// حذف عنصر من السلة
+function removeItem(id) {
+    const itemIndex = cart.findIndex(item => item.id === id);
+    if (itemIndex > -1) {
+        total -= cart[itemIndex].price;
+        cart.splice(itemIndex, 1);
+    }
+    updateUI();
+}
+
+function updateUI() {
+    document.getElementById('cart-count').innerText = cart.length;
+    document.getElementById('total-price').innerText = total.toLocaleString();
+    
+    const cartDisplay = document.getElementById('cart-display');
+    if (cart.length === 0) {
+        cartDisplay.innerHTML = '<p style="text-align:center; color:#888;">السلة فارغة حالياً</p>';
+    } else {
+        cartDisplay.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <span>✅ ${item.name}</span>
+                <span>${item.price.toLocaleString()} SDG <button class="btn-del" onclick="removeItem(${item.id})">❌</button></span>
+            </div>
+        `).join('');
+    }
+}
+
+document.getElementById('finalOrderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (cart.length === 0) {
+        alert("خطأ: السلة فارغة!");
+        return;
+    }
+    
+    const name = document.getElementById('custName').value;
+    const address = document.getElementById('custAddress').value;
+    const status = document.getElementById('statusMessage');
+
+    status.innerHTML = `
+        <div style="background: #d4edda; padding: 20px; border-radius: 10px; margin-top: 20px; border: 1px solid #28a745; color: #155724;">
+            <h3>شكراً يا ${name}!</h3>
+            <p>تم استلام طلبك لعدد (${cart.length}) أصناف.</p>
+            <p>سيتم التوصيل إلى الحاج يوسف وبقية المناطق: <b>${address}</b></p>
+            <p>الإجمالي المطلوب عند الاستلام: <b>${total.toLocaleString()} SDG</b></p>
+        </div>
+    `;
+
+    // تصفير بعد النجاح
+    cart = [];
+    total = 0;
+    updateUI();
+    this.reset();
+});
