@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مطعم رويال السوداني | نظام الطلبات الذكي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+<div class="logo">ROYAL<span>SUDAN</span></div>
+<div class="cart-status">🛒 السلة: <span id="cart-count">0</span> وجبات</div>
+</nav>
+
+<header class="hero">
+<div class="hero-overlay">
+<h1>أشهى المأكولات بلمسة سودانية</h1>
+<p>اختر وجباتك المفضلة وسنصلك أينما كنت</p>
+</div>
+</header>
+
+<section class="section">
+<h2 class="section-title">قائمة الطعام (الوجبات)</h2>
+<div class="grid-container">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500">
+<h3>ستيك مشوي فاخر</h3>
+<span class="price">15,000 SDG</span>
+<button onclick="addToCart('ستيك مشوي',15000)">شراء</button>
+</div>
+
+</div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
