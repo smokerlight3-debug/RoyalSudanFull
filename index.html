@@ -1,39 +1,104 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مطعم رويال السوداني | نظام الطلبات الذكي</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم النخبة | الموقع الرسمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="navbar">
-<div class="logo">ROYAL<span>SUDAN</span></div>
-<div class="cart-status">🛒 السلة: <span id="cart-count">0</span> وجبات</div>
-</nav>
+    <nav class="navbar">
+        <div class="logo">مطعم النخبة</div>
+        <ul class="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#menu">المنيو</a></li>
+            <li><a href="#checkout">سلة المشتريات (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
 
-<header class="hero">
-<div class="hero-overlay">
-<h1>أشهى المأكولات بلمسة سودانية</h1>
-<p>اختر وجباتك المفضلة وسنصلك أينما كنت</p>
-</div>
-</header>
+    <header class="hero" id="home">
+        <div class="hero-overlay">
+            <h1>تذوق الفن في كل وجبة</h1>
+            <p>أجواء هادئة وأطباق عالمية تناسب ذوقك الرفيع.</p>
+        </div>
+    </header>
 
-<section class="section">
-<h2 class="section-title">قائمة الطعام (الوجبات)</h2>
-<div class="grid-container">
+    <section id="menu" class="section">
+        <h2 class="section-title">الأطباق الرئيسية</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500" alt="ستيك">
+                <div class="card-info">
+                    <h3>ستيك مشوي فاخر</h3>
+                    <p>شرائح لحم بقري مع صوص الفطر.</p>
+                    <span class="price">15,000 SDG</span>
+                    <button class="add-btn" onclick="addToCart('ستيك مشوي', 15000)">شراء / إضافة للطلب</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="بيتزا">
+                <div class="card-info">
+                    <h3>بيتزا النخبة</h3>
+                    <p>عجينة رقيقة مع جبن الموزاريلا والريحان.</p>
+                    <span class="price">12,500 SDG</span>
+                    <button class="add-btn" onclick="addToCart('بيتزا النخبة', 12500)">شراء / إضافة للطلب</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512152272829-e3139592d56f?w=500" alt="برجر">
+                <div class="card-info">
+                    <h3>رويال برجر</h3>
+                    <p>برجر لحم طازج مع الجبن السويسري.</p>
+                    <span class="price">8,000 SDG</span>
+                    <button class="add-btn" onclick="addToCart('رويال برجر', 8000)">شراء / إضافة للطلب</button>
+                </div>
+            </div>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500">
-<h3>ستيك مشوي فاخر</h3>
-<span class="price">15,000 SDG</span>
-<button onclick="addToCart('ستيك مشوي',15000)">شراء</button>
-</div>
+        <h2 class="section-title" style="margin-top: 50px;">المشروبات</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544145945-f904253d0c7b?w=500" alt="عصير">
+                <div class="card-info">
+                    <h3>عصير مانجو طبيعي</h3>
+                    <span class="price">3,500 SDG</span>
+                    <button class="add-btn" onclick="addToCart('عصير مانجو', 3500)">شراء / إضافة للطلب</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500" alt="قهوة">
+                <div class="card-info">
+                    <h3>قهوة (جبنة)</h3>
+                    <span class="price">2,000 SDG</span>
+                    <button class="add-btn" onclick="addToCart('قهوة جبنة', 2000)">شراء / إضافة للطلب</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
-</section>
+    <section id="checkout" class="section">
+        <div class="form-container">
+            <h2>إتمام الطلب وتحديد العنوان</h2>
+            <div id="cart-items" style="margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                <p>السلة فارغة حالياً..</p>
+            </div>
+            <p style="font-weight: bold; font-size: 1.2rem; color: #b89116; margin-bottom: 20px;">الإجمالي: <span id="total-price">0</span> SDG</p>
 
-<script src="script.js"></script>
+            <form id="orderForm">
+                <input type="text" id="custName" placeholder="الاسم الكامل" required>
+                <input type="tel" id="custPhone" placeholder="رقم الهاتف" required>
+                <input type="text" id="custAddress" placeholder="عنوان التوصيل (الحي / الشارع / المنزل)" required>
+                <button type="submit" class="btn-submit">تأكيد الشراء الآن</button>
+            </form>
+            <div id="orderMessage"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - مشروع مطعم النخبة</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

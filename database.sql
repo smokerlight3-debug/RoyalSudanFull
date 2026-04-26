@@ -1,10 +1,12 @@
-CREATE DATABASE RoyalSudanResto;
-USE RoyalSudanResto;
-CREATE TABLE CustomerOrders(
-order_id INT AUTO_INCREMENT PRIMARY KEY,
-customer_name VARCHAR(150),
-phone_number VARCHAR(20),
-delivery_address TEXT,
-order_content TEXT,
-total_price DECIMAL(10,2)
+CREATE DATABASE RestaurantDB;
+USE RestaurantDB;
+
+CREATE TABLE Orders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_name VARCHAR(100) NOT NULL,
+    customer_phone VARCHAR(20) NOT NULL,
+    customer_address TEXT NOT NULL,
+    order_details TEXT,
+    total_price DECIMAL(15,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
